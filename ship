@@ -29,7 +29,7 @@ class Ship():
 	def update(self):
 		'''根据移动标志调整飞船的位置'''
 		#更新飞船的center值,而不是rect
-		if self.moving_right and self.rect.right < self.screen_rect.right: #self.rect.right返回飞船外接矩形的右边缘x坐标
+		if self.moving_right and self.rect.right < self.screen_rect.right:
 			self.center += self.ai_settings.ship_speed_factor
 		if self.moving_left  and self.rect.left  > self.screen_rect.left:
 			self.center -= self.ai_settings.ship_speed_factor
@@ -39,3 +39,7 @@ class Ship():
 	def blitme(self):
 		'''在指定位置绘制飞船'''
 		self.screen.blit(self.image,self.rect)
+
+	def center_ship(self):
+		'''让飞船在屏幕上居中'''
+		self.center = self.screen_rect.centerx
